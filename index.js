@@ -7,7 +7,7 @@ const port = 5000;
 //app.use(express.urlencoded({ extended: false }));
 
 let proxy  = require('http-proxy-middleware');
-app.use('/', proxy({ target: 'http://www.google.com', changeOrigin: true }));
+app.use('/', proxy({ target: 'https://www.google.com', changeOrigin: true }));
 
 //// Home route
 //app.get("/", (req, res) => {
