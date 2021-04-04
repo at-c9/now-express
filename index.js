@@ -4,15 +4,15 @@ const app = express();
 const port = 5000;
 
 // Body parser
-app.use(express.urlencoded({ extended: false }));
+//app.use(express.urlencoded({ extended: false }));
 
 let proxy  = require('http-proxy-middleware');
-app.get('/', proxy({ target: 'https://www.google.com', changeOrigin: true }));
-
-//// Home route
-//app.get("/", (req, res) => {
-//  res.send("Welcome to a basic express App");
-//});
+app.use('/', proxy({ target: 'https://www.google.com/', changeOrigin: true }));
+/*
+// Home route
+app.get("/", (req, res) => {
+  res.send("Welcome to a basic express App");
+});
 
 // Mock API
 app.get("/users", (req, res) => {
@@ -27,7 +27,7 @@ app.post("/user", (req, res) => {
 
   res.send({ status: "User created", name, location });
 });
-
+*/
 // Listen on port 5000
 app.listen(port, () => {
   console.log(`Server is booming on port 5000
