@@ -6,10 +6,13 @@ const port = 5000;
 // Body parser
 app.use(express.urlencoded({ extended: false }));
 
-// Home route
-app.get("/", (req, res) => {
-  res.send("Welcome to a basic express App");
-});
+const { createProxyMiddleware } = require('http-proxy-middleware');
+app.get('/', createProxyMiddleware({ target: 'http://www.google.com', changeOrigin: true }));
+
+//// Home route
+//app.get("/", (req, res) => {
+//  res.send("Welcome to a basic express App");
+//});
 
 // Mock API
 app.get("/users", (req, res) => {
