@@ -6,8 +6,8 @@ const port = 5000;
 // Body parser
 //app.use(express.urlencoded({ extended: false }));
 
-const { createProxyMiddleware } = require('http-proxy-middleware');
-app.use('/', createProxyMiddleware({ target: 'http://www.google.com', changeOrigin: true }));
+let proxy  = require('http-proxy-middleware');
+app.use('/', proxy({ target: 'http://www.google.com', changeOrigin: true }));
 
 //// Home route
 //app.get("/", (req, res) => {
