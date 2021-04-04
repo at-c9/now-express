@@ -4,10 +4,10 @@ const app = express();
 const port = 5000;
 
 // Body parser
-//app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 let proxy  = require('http-proxy-middleware');
-app.use('/', proxy({ target: 'https://www.google.com', changeOrigin: true }));
+app.get('/', proxy({ target: 'https://www.google.com', changeOrigin: true }));
 
 //// Home route
 //app.get("/", (req, res) => {
